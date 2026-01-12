@@ -252,12 +252,15 @@ const Login = () => {
 
         {/* FORGOT PASSWORD */}
         <div className="mt-4 text-left">
-          <button
-            type="reset"
-            className="text-sm text-cyan-600 hover:underline"
-          >
-            Forgot password?
-          </button>
+         <button
+  type="button"
+  onClick={() =>
+    alert("OTP has been sent to your registered email")
+  }
+  className="mt-3 text-sm text-cyan-600 hover:text-cyan-700 hover:underline transition-colors"
+>
+  Forgot password?
+</button>
         </div>
 
         {/* SUBMIT */}
