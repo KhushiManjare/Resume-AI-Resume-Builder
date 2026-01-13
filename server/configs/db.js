@@ -6,27 +6,19 @@ const connectDB = async () => {
       console.log("Database connected Successfully!");
     });
 
-    let mongodbURI = process.env.MONGODB_URI;
-    const projectName = "ResumeBuilder";
+    const mongodbURI = process.env.MONGODB_URI;
 
     if (!mongodbURI) {
-      console.error(
-        "MONGODB_URI environment variable not set. Please check your .env file."
-      );
+      console.error("MONGODB_URI environment variable not set.");
       process.exit(1);
     }
 
-    if (mongodbURI.endsWith("/")) {
-      mongodbURI = mongodbURI.slice(0, -1);
-    }
-
-    await mongoose.connect(`${mongodbURI}/${projectName}`);
+    await mongoose.connect(mongodbURI);
   } catch (error) {
     console.error(
       "Connection Failed!, Error while connecting to MongoDB:",
       error.message || error
     );
-
     process.exit(1);
   }
 };
